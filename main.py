@@ -21,6 +21,10 @@ roi_labels = {
 
     print("--- Computing Regional Vessel Densities ---")
 # apply atlas and cumpute density
+def apply_atlas(atlas, vessels, labels):
+    mask  = np.isin(atlas, list(labels))
+    total = mask.sum()
+    return ((mask) & (vessels == 1)).sum() / total if total > 0 else 0.0
  brain_mask_path = "/path"
     _, brain_mask, _ = ng.io.load_nifti_get_mask(brain_mask_path, is_mask=True)
     brain_mask_voxels = np.sum(brain_mask)
