@@ -3,6 +3,7 @@ import pandas as pd
 import nibabel as nib
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
+
 # import segmentation and parcellation
 def run_vascular_analysis():
 vessel_nii = nib.load("subject1_session1_refined_vessels.nii.gz")
